@@ -38,11 +38,6 @@ public class ProductController {
         return "products";
     }
 
-    @RequestMapping(value ="", method = RequestMethod.GET)
-    public String product(@RequestParam(name = "price", required = false) Float price,
-                          Model model){
-        model.addAttribute("product", productRepository.findAll());
-    }
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createProductFrom(@RequestParam("categoryId") Long categoryId, Model model) {

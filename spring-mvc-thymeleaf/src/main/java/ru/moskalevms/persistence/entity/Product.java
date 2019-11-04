@@ -1,4 +1,4 @@
-package moskalevms.persistence.entity;
+package ru.moskalevms.persistence.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
