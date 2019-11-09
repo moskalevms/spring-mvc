@@ -67,4 +67,9 @@ public class ProductService {
                 .orElseThrow(() -> new IllegalStateException("Category not found")));
         productRepository.save(product);
     }
+
+    @Transactional
+    public void delete(Long id) {
+        productRepository.deleteById(id);
+    }
 }
