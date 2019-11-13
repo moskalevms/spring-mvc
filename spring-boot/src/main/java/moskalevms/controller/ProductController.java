@@ -1,5 +1,6 @@
 package moskalevms.controller;
 
+import moskalevms.controller.error.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,14 +31,18 @@ public class ProductController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String products(@RequestParam(name = "categoryId", required = false) Long categoryId,
+    public String products(@RequestParam(name = "categoryId", defaultValue = "-1") Long categoryId,
                            @RequestParam(name = "priceFrom", required = false) BigDecimal priceFrom,
                            @RequestParam(name = "priceTo", required = false) BigDecimal priceTo,
+                           @RequestParam(name = "currentPage", defaultValue = "0") Integer currentPage,
+                           @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize,
                            Model model) {
-        ProductFilter productFilter = new ProductFilter(categoryId != null ? categoryId : -1, priceFrom, priceTo);
+        ProductFilter productFilter = new ProductFilter(categoryId, priceFrom, priceTo,
+                currentPage, pageSize);
+
+        model.addAttribute("prodPage", productService.filterProducts(productFilter));
         model.addAttribute("filter", productFilter);
         model.addAttribute("categories", categoryService.findAllWithoutProducts());
-        model.addAttribute("products", productService.filterProducts(productFilter));
 
         return "products";
     }
@@ -51,7 +56,7 @@ public class ProductController {
     @RequestMapping(value = "edit", method = RequestMethod.GET)
     public String editProduct(@RequestParam("id") Long id, Model model) {
         model.addAttribute("product", productService.getProductReprById(id)
-                .orElseThrow(() -> new IllegalStateException("Product not found")));
+                .orElseThrow(ResourceNotFoundException::new));
         return "product";
     }
 

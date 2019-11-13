@@ -24,15 +24,6 @@ public class ProductRestController {
 
     }
 
-    @GetMapping(value = "/all")
-    public List<Product> getAllProducts(){
-        return productService.findAll();
-    }
-
-    @GetMapping(value = "/{categoryId}/categoryId")
-    public List<Product> getAllProductByCategoryId(@PathVariable("categoryId") Long categoryId){
-        return productService.getAllByCategory_Id(categoryId);
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -40,9 +31,6 @@ public class ProductRestController {
         productService.save(product);
     }
 
-    @DeleteMapping(value = "/{id}/id")
-    public void deleteCategory(@PathVariable("id") Long id) {
-        productService.delete(id);
-    }
+
 
 }
