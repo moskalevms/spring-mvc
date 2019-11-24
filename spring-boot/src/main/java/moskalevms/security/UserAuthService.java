@@ -1,6 +1,5 @@
 package moskalevms.security;
 
-import moskalevms.persistence.entity.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,8 +17,6 @@ public class UserAuthService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    private Roles roles;
-
     @Autowired
     public UserAuthService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -31,7 +28,7 @@ public class UserAuthService implements UserDetailsService {
                 .map(user -> new org.springframework.security.core.userdetails.User(
                         user.getUsername(),
                         user.getPassword(),
-                        Collections.singletonList(new SimpleGrantedAuthority("ROLE" + roles.getUsername()))
+                        Collections.singletonList(new SimpleGrantedAuthority("USER"))
                 ))
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }

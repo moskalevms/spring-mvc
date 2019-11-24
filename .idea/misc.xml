@@ -2,11 +2,14 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/servlet-app" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-jpa" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-mvc-thymeleaf" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot/pom.xml" />
       </list>
     </option>
   </component>

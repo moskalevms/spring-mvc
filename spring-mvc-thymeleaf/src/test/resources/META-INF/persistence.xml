@@ -6,8 +6,8 @@
              version="2.1">
 
     <persistence-unit name="TestH2Db">
-        <class>ru.moskalevms.persistence.entity.Product</class>
-        <class>ru.moskalevms.persistence.entity.Category</class>
+        <class>ru.Product</class>
+        <class>ru.Category</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:" />
             <property name="javax.persistence.jdbc.user" value="sa" />

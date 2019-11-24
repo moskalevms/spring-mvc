@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpringMVC.iml" filepath="$PROJECT_DIR$/SpringMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/servlet-app/servlet-app.iml" filepath="$PROJECT_DIR$/servlet-app/servlet-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot/spring-boot.iml" filepath="$PROJECT_DIR$/spring-boot/spring-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-jpa/spring-jpa.iml" filepath="$PROJECT_DIR$/spring-jpa/spring-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mvc-thymeleaf/spring-mvc-thymeleaf.iml" filepath="$PROJECT_DIR$/spring-mvc-thymeleaf/spring-mvc-thymeleaf.iml" />
     </modules>
   </component>
 </project>
