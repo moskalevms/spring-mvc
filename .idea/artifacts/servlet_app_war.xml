@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="java-web-project.war">
+    <root id="archive" name="servler_example.war">
       <element id="artifact" artifact-name="servlet-app:war exploded" />
     </root>
   </artifact>
